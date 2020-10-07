@@ -4,6 +4,14 @@
 
 This app can be used to write, save, and delete notes. This application uses an express backend and save and retrieve note data from a JSON file.
 
+## Installation and Components 
+• Node JS
+• npm install 
+• Express 
+• JavaScript
+• CSS
+• HTML
+
 ## User Story
 
 AS A user, I want to be able to write and save notes
