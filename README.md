@@ -26,7 +26,11 @@ Application should allow users to delete previously saved notes.
 
 ## Deployed application in Heroku 
 
+## Questions 
 
-
+If you have any questions, please feel free to contact me below.
+<a href='https://github.com/Aivorlan'>Github Profile: Aivorlan</a>
+<img src='https://avatars3.githubusercontent.com/u/65247434?v=4' height='200px' alt='github avatar'>
+Email: OfficialQuin@icloud.com
 
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
