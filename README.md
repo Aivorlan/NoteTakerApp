@@ -33,7 +33,8 @@ Application should allow users to view previously saved notes.
 Application should allow users to delete previously saved notes.
 
 ## Deployed application in Heroku 
-
+Application is currently not working in Heroku. Working on solutions and trying to figure out Heroku
+<img src='Develop/public/assets/image.png'>
 ## Questions 
 
 If you have any questions, please feel free to contact me below.
