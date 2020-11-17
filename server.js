@@ -1,53 +1,72 @@
-var express = require('express');
-var fs = require('fs');
-var path = require('path');
-var uuid = require('uuid');
+const express = require('express');
+const moment = require('moment');
+const fs = require('fs');
 
-const notes = require('./Develop/db/db.json');
+const app = express();
 
-let app = express();
-let PORT = process.env.PORT || 3306;
+let PORT = process.env.PORT || 3000;
+
+// Returns db file as JSON data
+function getDbData(filePath = `${__dirname}/db/db.json`) {
+    let data = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(data);
+}
+
+// Writes JSON data to db file
+function writeDbData(data, filePath = `${__dirname}/db/db.json`) {
+    fs.writeFile(filePath, JSON.stringify(data), err => {
+        if (err) throw err;
+    });
+}
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('./Develop/public'));
 
-// Routes
+// PAGE ENDPOINT
+app.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/public/index.html`);
+});
+
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, "/Develop/public/notes.html"));
+    res.sendFile(`${__dirname}/public/notes.html`);
 });
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/Develop/public/index.html'));
-// });
-
-app.get('api/notes', (req, res) => {
-    return res.json(notes);
+// API ENDPOINT
+// Get Note Info
+app.get('/api/notes', (req, res) => {
+    dataArray = getDbData();
+    return res.json(dataArray);
 });
 
+// Add a Note
 app.post('/api/notes', (req, res) => {
-    var newNote = {
-        id: uuid.v4(),
-        title: req.body.title,
-        text: req.body.text
+    let dataArray = getDbData();
+    let newData = req.body;
+
+    // Use current timestamp as data id
+    newData.id = moment().format('yyyyMMDDHHmmssSS');
+    dataArray.push(newData);
+
+    writeDbData(dataArray);
+    return res.json(dataArray);
+});
+
+// Delete a Note
+app.delete('/api/notes/:id', (req, res) => {
+    let dataArray = getDbData();
+    let { id } = req.params;
+
+    // Remove data object with matching id from dataArray
+    for (let i = 0; i < dataArray.length; i++) {
+        if (dataArray[i].id == id) {
+            dataArray.splice(i, 1);
+        }
     }
 
-    notes.push(newNote);
-    return notes;
-});
-
-app.delete('/api/notes/:id', (req, res) => {
-    let id = req.params.id;
-
-    for (let i = 0; i < notes.length; i++){
-        if (id === notes[i].id){
-            notes.splice(i, 1);
-            return notes;
-        }
-    };
-});
-
-app.listen(PORT, () => {
-    console.log(`Server started on PORT: ${PORT}`);
+    writeDbData(dataArray);
+    res.json(dataArray);
 })
 
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+});
