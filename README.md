@@ -5,7 +5,6 @@
 The Note Taker app is an easy-to-use tool for quickly creating and saving notes.The app also allows you to delete your saved notes that are no longer needed. The left panel allows you take a quick glance at all of your exisitng notes. 
 
 ## Installation and Components 
-• Node JS
 • npm install 
 • Express 
 • JavaScript
@@ -33,9 +32,8 @@ Application should allow users to view previously saved notes.
 Application should allow users to delete previously saved notes.
 
 ## Deployed application in Heroku 
-Application is currently not working in Heroku. Working on solutions and trying to figure out Heroku
 <a href='https://thenotetakerapp.herokuapp.com/'>Click Here to try the app!</a>
-
+<img src='public\assets\Screenshot3.png' height='400px'>
 ## Questions 
 If you have any questions, please feel free to contact me below.
 <a href='https://github.com/Aivorlan'>Github Profile: Aivorlan</a>
