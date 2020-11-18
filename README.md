@@ -1,8 +1,8 @@
-# Unit 11 Express Homework: Note Taker
+# Note Taker App
 
 ## Description
 
-This app can be used to write, save, and delete notes. This application uses an express backend and save and retrieve note data from a JSON file.
+The Note Taker app is an easy-to-use tool for quickly creating and saving notes.The app also allows you to delete your saved notes that are no longer needed. The left panel allows you take a quick glance at all of your exisitng notes. 
 
 ## Installation and Components 
 • Node JS
@@ -34,9 +34,9 @@ Application should allow users to delete previously saved notes.
 
 ## Deployed application in Heroku 
 Application is currently not working in Heroku. Working on solutions and trying to figure out Heroku
-<img src='Develop/public/assets/image.png'>
-## Questions 
+<a href='https://thenotetakerapp.herokuapp.com/'>Click Here to try the app!</a>
 
+## Questions 
 If you have any questions, please feel free to contact me below.
 <a href='https://github.com/Aivorlan'>Github Profile: Aivorlan</a>
 <img src='https://avatars3.githubusercontent.com/u/65247434?v=4' height='200px' alt='github avatar'>
